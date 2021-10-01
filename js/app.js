@@ -264,7 +264,7 @@ const addToCart = (id, price) => {
 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
-  const converted = parseInt(element);
+  const converted = parseFloat(element);
   return converted;
 };
 
@@ -274,11 +274,13 @@ const updatePrice = (id, value) => {
   const convertPrice = parseFloat(value);
   const total = convertedOldPrice + convertPrice;
   document.getElementById(id).innerText = total.toFixed(2);
+  updateTotal();
 };
 
 // set innerText function
 const setInnerText = (id, value) => {
   document.getElementById(id).innerText = Math.round(value);
+  updateTotal();
 };
 
 // update delivery charge and total Tax
